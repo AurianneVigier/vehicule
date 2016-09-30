@@ -18,7 +18,7 @@ public class Vehicule {
 	}
 
 	public static void stop() {
-		System.out.println("La voiture est à l'arret");
+		System.out.println("La voiture est a l'arret");
 	}
 
 	public static void speedUp(int speed) {
@@ -29,6 +29,11 @@ public class Vehicule {
 	public static void speedDown(int speed) {
 		Console console = System.console();
 		speed = Integer.parseInt(console.readLine("Diminuer la vitesse de la voiture : "));
+	}
+	
+	public static void read (int saisie){
+		Console console = System.console();
+		saisie = Integer.parseInt(console.readLine("Quelle voiture voulez-vous voir ?"));
 	}
 
 }
