@@ -1,8 +1,12 @@
 package com.iia.shop.entity;
 
 import java.io.Console;
+import java.util.Scanner;
 
 public class Vehicule {
+	
+	Console console = System.console();
+	Scanner scan = new Scanner(System.in);
 
 	public static String brand;
 	public static int year;
@@ -19,6 +23,10 @@ public class Vehicule {
 		this.model = model;
 		this.color = color;
 		this.price = price;
+	}
+
+	public Vehicule() {
+		super();
 	}
 
 	public static void start() {
@@ -44,8 +52,8 @@ public class Vehicule {
 		saisie = Integer.parseInt(console.readLine("Quelle voiture voulez-vous voir ?"));
 	}
 
-	public static void readAll() {
-		// TODO Auto-generated method stub
+	public static void readAll(int j, String brand, int year, int speed, String model, String color, double price) {
+		System.out.println("Voiture " + j + " : " + getBrand() + " " + getYear() + " " + getSpeed() + " " + getModel() + " " + getColor() + " " + getPrice());
 
 	}
 
@@ -54,8 +62,7 @@ public class Vehicule {
 
 	}
 
-	public static void create(String[] Voiture) {
-		Voiture = new String[10];
+	public static void create(int add) {
 		Console console = System.console();
 		System.out.println("Entrez la marque : ");
 		brand = console.readLine("");
@@ -82,7 +89,7 @@ public class Vehicule {
 
 	}
 
-	public String getBrand() {
+	public static String getBrand() {
 		return brand;
 	}
 
@@ -90,7 +97,7 @@ public class Vehicule {
 		this.brand = brand;
 	}
 
-	public int getYear() {
+	public static int getYear() {
 		return year;
 	}
 
@@ -98,7 +105,7 @@ public class Vehicule {
 		this.year = year;
 	}
 
-	public int getSpeed() {
+	public static int getSpeed() {
 		return speed;
 	}
 
@@ -106,7 +113,7 @@ public class Vehicule {
 		this.speed = speed;
 	}
 
-	public String getModel() {
+	public static String getModel() {
 		return model;
 	}
 
@@ -114,7 +121,7 @@ public class Vehicule {
 		this.model = model;
 	}
 
-	public String getColor() {
+	public static String getColor() {
 		return color;
 	}
 
@@ -122,7 +129,7 @@ public class Vehicule {
 		this.color = color;
 	}
 
-	public double getPrice() {
+	public static double getPrice() {
 		return price;
 	}
 
