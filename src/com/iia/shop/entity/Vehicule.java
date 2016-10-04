@@ -83,9 +83,40 @@ public class Vehicule {
 
 	// modifier une voiture par rapport a son index
 	public void update() {
-		// menu
-		
-
+		System.out.println("");
+		System.out.println("Que souhaitez-vous modifier ?");
+		System.out.println(" ");
+		System.out.println("0- La marque");
+		System.out.println("1- L'annee");
+		System.out.println("2- La vitesse");
+		System.out.println("3- Le modele");
+		System.out.println("4- La couleur");
+		System.out.println("5- Le prix");
+		System.out.println(" ");
+		int modifier = Integer.parseInt(console.readLine("Saisissez le numero de ce que vous voulez modifier :  "));
+		switch (modifier) {
+		case 0:
+			brand = console.readLine("Entrez la marque : ");
+			break;
+		case 1:
+			year = Integer.parseInt(console.readLine("Entrez l'annee : "));
+			break;
+		case 2:
+			speed = Integer.parseInt(console.readLine("Entrez la vitesse : "));
+			break;
+		case 3:
+			model = console.readLine("Entrez le modele : ");
+			break;
+		case 4:
+			color = console.readLine("Entrez la couleur : ");
+			break;
+		case 5:
+			price = Integer.parseInt(console.readLine("Entrez le prix : "));
+			break;
+		default:
+			System.out.println("Vous allez sortir du menu modification");
+			break;
+		}
 	}
 
 	// getters et setters

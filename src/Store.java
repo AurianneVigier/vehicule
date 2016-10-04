@@ -46,7 +46,6 @@ public class Store {
 
 		int sortir = 1;
 		do {
-			int choix;
 			int index;
 			System.out.println("");
 			System.out.println("Que souhaitez-vous faire ?");
@@ -112,7 +111,7 @@ public class Store {
 				index = Store.getVehicule(vehicules);
 				if(index != -1)
 				{
-					vehicules.get(index);
+					//vehicules.get(index).read();
 					vehicules.get(index).update(); // Utiliser Read
 				}
 				break;
