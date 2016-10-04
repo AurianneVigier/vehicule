@@ -8,12 +8,12 @@ public class Vehicule {
 	Console console = System.console();
 	Scanner scan = new Scanner(System.in);
 
-	public static String brand;
-	public static int year;
-	public static int speed;
-	public static String model;
-	public static String color;
-	public static double price;
+	public  String brand;
+	public  int year;
+	public  int speed;
+	public  String model;
+	public  String color;
+	public  double price;
 
 	public Vehicule(String brand, int year, int speed, String model, String color, double price) {
 		super();
@@ -29,54 +29,58 @@ public class Vehicule {
 		super();
 	}
 
-	public static void start() {
+	public  void start() {
+		speed = 1;
 		System.out.println("La voiture avance");
 	}
 
-	public static void stop() {
+	public  void stop() {
+		speed = 0;
 		System.out.println("La voiture est a l'arret");
 	}
 
-	public static void speedUp(int speed) {
-		Console console = System.console();
-		speed = Integer.parseInt(console.readLine("Augmenter la vitesse de la voiture : "));
+	public  void speedUp() {
+		speed = speed + 1; 
 	}
 
-	public static void speedDown(int speed) {
-		Console console = System.console();
-		speed = Integer.parseInt(console.readLine("Diminuer la vitesse de la voiture : "));
+	public  void speedDown() {
+		speed = speed - 1;
+		if(speed < 0)
+        {
+            speed = 0;
+        }
 	}
 
-	public static void read(int saisie) {
-		Console console = System.console();
-		saisie = Integer.parseInt(console.readLine("Quelle voiture voulez-vous voir ?"));
+	public  void read() {
+		System.out.println("Voiture " + getBrand() + " " + getYear() + " " + getSpeed() + " " + getModel() + " " + getColor() + " " + getPrice());
 	}
 
-	public static void readAll(int j, String brand, int year, int speed, String model, String color, double price) {
-		System.out.println("Voiture " + j + " : " + getBrand() + " " + getYear() + " " + getSpeed() + " " + getModel() + " " + getColor() + " " + getPrice());
-
-	}
-
-	public static void readSingle() {
-		// TODO Auto-generated method stub
+	public  void readAll(int j, String brand, int year, int speed, String model, String color, double price) {
+		//System.out.println("Voiture " + getBrand() + " " + getYear() + " " + getSpeed() + " " + getModel() + " " + getColor() + " " + getPrice());
 
 	}
 
-	public static void create(int add) {
+	//public  void readSingle() {
+		//System.out.println("Voiture " + getBrand() + " " + getYear() + " " + getSpeed() + " " + getModel() + " " + getColor() + " " + getPrice());
+
+	//}
+
+	public static Vehicule create(int add) {
+		Vehicule voiture = new Vehicule();
 		Console console = System.console();
 		System.out.println("Entrez la marque : ");
-		brand = console.readLine("");
+		voiture.brand = console.readLine("");
 		System.out.println("Entrez l'annee : ");
-		year = Integer.parseInt(console.readLine(""));
+		voiture.year = Integer.parseInt(console.readLine(""));
 		System.out.println("Entrez la vitesse : ");
-		speed = Integer.parseInt(console.readLine(""));
+		voiture.speed = Integer.parseInt(console.readLine(""));
 		System.out.println("Entrez le modele : ");
-		model = console.readLine("");
+		voiture.model = console.readLine("");
 		System.out.println("Entrez la couleur : ");
-		color = console.readLine("");
+		voiture.color = console.readLine("");
 		System.out.println("Entrez le prix : ");
-		price = Double.parseDouble(console.readLine(""));
-
+		voiture.price = Double.parseDouble(console.readLine(""));
+		return voiture;
 	}
 
 	public static void update() {
@@ -89,7 +93,7 @@ public class Vehicule {
 
 	}
 
-	public static String getBrand() {
+	public  String getBrand() {
 		return brand;
 	}
 
@@ -97,7 +101,7 @@ public class Vehicule {
 		this.brand = brand;
 	}
 
-	public static int getYear() {
+	public  int getYear() {
 		return year;
 	}
 
@@ -105,7 +109,7 @@ public class Vehicule {
 		this.year = year;
 	}
 
-	public static int getSpeed() {
+	public  int getSpeed() {
 		return speed;
 	}
 
@@ -113,7 +117,7 @@ public class Vehicule {
 		this.speed = speed;
 	}
 
-	public static String getModel() {
+	public  String getModel() {
 		return model;
 	}
 
@@ -121,7 +125,7 @@ public class Vehicule {
 		this.model = model;
 	}
 
-	public static String getColor() {
+	public  String getColor() {
 		return color;
 	}
 
@@ -129,7 +133,7 @@ public class Vehicule {
 		this.color = color;
 	}
 
-	public static double getPrice() {
+	public  double getPrice() {
 		return price;
 	}
 
