@@ -1,34 +1,58 @@
 import java.io.Console;
+import java.util.ArrayList;
+import java.awt.List;
 
 import com.iia.shop.entity.Vehicule;
 
 public class Store {
-
+	
+	public static int getVehicule(ArrayList<Vehicule> vehicules){
+		System.out.println("Selectionner un vehicule : ");
+		System.out.println(vehicules.size() + " vehicules disponibles : ");
+		
+		Console console = System.console();
+		int choix = Integer.parseInt(console.readLine("Entrez votre choix : "));
+		
+		if(choix >= 0 && choix < vehicules.size())
+		{
+			return choix;
+		}
+		System.out.println("Ce vehicule n'est pas disponible !");
+		return -1;
+	}
+	
+	public static void readAll(ArrayList<Vehicule> vehicules)
+	{
+		if (vehicules == null){
+			System.out.println("Aucun vehicule n'a ete cree");
+		}
+		for(Vehicule vehicule: vehicules)
+		{
+			vehicule.read();
+		}
+	}
+	
 	public static void main(String[] args) {
 		// tableau de vehicules
-
-		Vehicule voiture = new Vehicule();
-		int i = 0;
-		String Voiture[] = new String[i];
+		ArrayList<Vehicule> vehicules = new ArrayList<Vehicule>();
 
 		int sortir = 1;
 		do {
 			int choix;
+			int index;
 			System.out.println("");
 			System.out.println("Que souhaitez-vous faire ?");
 			System.out.println(" ");
-			System.out.println("1- Voir tous les vehicules");
-			System.out.println(" ");
+			//System.out.println("1- Voir tous les vehicules");
+			//System.out.println(" ");
 
 			Console console = System.console();
-			choix = Integer.parseInt(console.readLine("Entrez votre choix : "));
+			//choix = Integer.parseInt(console.readLine("Entrez votre choix : "));
 
-			switch (choix) {
+			//switch (choix) {
 
-			case 1:
-					System.out.println("");
-					Vehicule.readAll(i, Vehicule.getBrand(), Vehicule.getYear(), Vehicule.getSpeed(), Vehicule.getModel(), Vehicule.getColor(), Vehicule.getPrice());
-					System.out.println("");
+			//case 1:
+					System.out.println("0- Voir tous les vehicules");
 					System.out.println("1- Voir un vehicule en particulier");
 					System.out.println("2- Creer un vehicule");
 					System.out.println("3- Modifier un vehicule");
@@ -37,26 +61,39 @@ public class Store {
 					int action = Integer.parseInt(console.readLine("Saisissez le numero que vous voulez realiser :  "));
 					System.out.println("");
 					switch (action) {
+					case 0:
+						Store.readAll(vehicules);
+						break;
 					case 1:
-						int j = 0;
-						Vehicule.readAll(j, Vehicule.getBrand(), Vehicule.getYear(), Vehicule.getSpeed(), Vehicule.getModel(), Vehicule.getColor(), Vehicule.getPrice());
+						index = Store.getVehicule(vehicules);
+						if(index != -1)
+						{
+							vehicules.get(index).read();
+						}
 						break;
 					case 2:
-						int add = 0;
-						Vehicule.create(add);
+						vehicules.add(Vehicule.create());
 						break;
 					case 3:
-						Vehicule.update();
+						index = Store.getVehicule(vehicules);
+						if(index != -1)
+						{
+							//vehicules.get(index).update(); // Utiliser Read
+						}
 						break;
 					case 4:
-						Vehicule.delete();
+						index = Store.getVehicule(vehicules);
+						if(index != -1)
+						{
+							vehicules.remove(index);
+						}
 						break;
 					default:
 						System.out.println("Vous allez sortir de l'application");
 						break;
 					}
 
-					} //while (sortir != 0);
+					//} //while (sortir != 0);
 			
 			/*switch (choix) {
 			case 1:

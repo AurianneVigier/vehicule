@@ -65,7 +65,7 @@ public class Vehicule {
 
 	//}
 
-	public static Vehicule create(int add) {
+	public static Vehicule create() {
 		Vehicule voiture = new Vehicule();
 		Console console = System.console();
 		System.out.println("Entrez la marque : ");
@@ -88,10 +88,9 @@ public class Vehicule {
 
 	}
 
-	public static void delete() {
-		// TODO Auto-generated method stub
+	//public static void delete() {
 
-	}
+	//}
 
 	public  String getBrand() {
 		return brand;
