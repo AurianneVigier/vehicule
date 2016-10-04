@@ -8,12 +8,12 @@ public class Vehicule {
 	Console console = System.console();
 	Scanner scan = new Scanner(System.in);
 
-	public  String brand;
-	public  int year;
-	public  int speed;
-	public  String model;
-	public  String color;
-	public  double price;
+	public String brand;
+	public int year;
+	public int speed;
+	public String model;
+	public String color;
+	public double price;
 
 	public Vehicule(String brand, int year, int speed, String model, String color, double price) {
 		super();
@@ -28,22 +28,26 @@ public class Vehicule {
 	public Vehicule() {
 		super();
 	}
-
-	public  void start() {
+	
+	// faire avancer la voiture si elle est a l'arret
+	public void start() {
 		speed = 1;
 		System.out.println("La voiture avance");
 	}
 
-	public  void stop() {
+	// arreter la voiture si elle roule
+	public void stop() {
 		speed = 0;
 		System.out.println("La voiture est a l'arret");
 	}
 
-	public  void speedUp() {
+	// augmenter la vitesse de la voiture
+	public void speedUp() {
 		speed = speed + 1; 
 	}
 
-	public  void speedDown() {
+	// diminuer la vitesse de la voiture
+	public void speedDown() {
 		speed = speed - 1;
 		if(speed < 0)
         {
@@ -51,20 +55,14 @@ public class Vehicule {
         }
 	}
 
-	public  void read() {
+	// voir une voiture par rapport a son index
+	public void read() {
+		System.out.println("Voiture marque | annee | vitesse | modele | couleur | prix");
+		System.out.println(" ");
 		System.out.println("Voiture " + getBrand() + " " + getYear() + " " + getSpeed() + " " + getModel() + " " + getColor() + " " + getPrice());
 	}
 
-	public  void readAll(int j, String brand, int year, int speed, String model, String color, double price) {
-		//System.out.println("Voiture " + getBrand() + " " + getYear() + " " + getSpeed() + " " + getModel() + " " + getColor() + " " + getPrice());
-
-	}
-
-	//public  void readSingle() {
-		//System.out.println("Voiture " + getBrand() + " " + getYear() + " " + getSpeed() + " " + getModel() + " " + getColor() + " " + getPrice());
-
-	//}
-
+	// creer une voiture
 	public static Vehicule create() {
 		Vehicule voiture = new Vehicule();
 		Console console = System.console();
@@ -83,16 +81,15 @@ public class Vehicule {
 		return voiture;
 	}
 
-	public static void update() {
-		// TODO Auto-generated method stub
+	// modifier une voiture par rapport a son index
+	public void update() {
+		// menu
+		
 
 	}
 
-	//public static void delete() {
-
-	//}
-
-	public  String getBrand() {
+	// getters et setters
+	public String getBrand() {
 		return brand;
 	}
 
@@ -100,7 +97,7 @@ public class Vehicule {
 		this.brand = brand;
 	}
 
-	public  int getYear() {
+	public int getYear() {
 		return year;
 	}
 
@@ -108,7 +105,7 @@ public class Vehicule {
 		this.year = year;
 	}
 
-	public  int getSpeed() {
+	public int getSpeed() {
 		return speed;
 	}
 
@@ -116,7 +113,7 @@ public class Vehicule {
 		this.speed = speed;
 	}
 
-	public  String getModel() {
+	public String getModel() {
 		return model;
 	}
 
@@ -124,7 +121,7 @@ public class Vehicule {
 		this.model = model;
 	}
 
-	public  String getColor() {
+	public String getColor() {
 		return color;
 	}
 
@@ -132,7 +129,7 @@ public class Vehicule {
 		this.color = color;
 	}
 
-	public  double getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
